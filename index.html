@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VEIL — The social network that makes you wait</title>
+  <meta name="description" content="Your post starts hidden. The more people engage, the more it reveals. No engagement? Gone forever."/>
+  <meta property="og:title" content="VEIL — The social network that makes you wait"/>
+  <meta property="og:description" content="Your post starts hidden. The more people engage, the more it reveals. No engagement? Gone forever."/>
+  <meta property="og:type" content="website"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+  <!-- Ambient background -->
+  <div class="bg-layer">
+    <div class="bg-orb bg-orb--1"></div>
+    <div class="bg-orb bg-orb--2"></div>
+    <div class="bg-grid"></div>
+  </div>
+
+  <!-- Nav -->
+  <nav class="nav" id="nav">
+    <div class="nav__logo">VEIL<span class="nav__dot">.</span></div>
+    <div class="nav__badge">Private beta</div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero__eyebrow">
+      <span class="eyebrow-dot"></span>
+      A new kind of social network
+    </div>
+
+    <h1 class="hero__title">
+      The social network<br>
+      that makes <em>you wait</em>
+    </h1>
+
+    <p class="hero__sub">
+      Your post starts completely hidden.<br>
+      The more people engage, the more it reveals.<br>
+      No engagement? Gone <em>forever.</em>
+    </p>
+
+    <!-- Phone mockup -->
+    <div class="phone-wrap">
+      <div class="phone">
+        <div class="phone__notch"></div>
+        <div class="phone__screen">
+
+          <!-- Feed post card -->
+          <div class="post-card">
+            <div class="post-card__header">
+              <div class="post-card__avatar">MR</div>
+              <div class="post-card__meta">
+                <div class="post-card__user">marina_r</div>
+                <div class="post-card__time">2h ago</div>
+              </div>
+              <div class="post-card__timer">
+                <span class="timer-dot"></span>
+                14h left
+              </div>
+            </div>
+
+            <div class="post-card__img" id="postImg">
+              <div class="post-card__noise"></div>
+              <div class="post-card__shapes">
+                <div class="shape shape--1"></div>
+                <div class="shape shape--2"></div>
+                <div class="shape shape--3"></div>
+              </div>
+              <div class="post-card__pct" id="postPct">23%</div>
+              <div class="post-card__label">revealed</div>
+            </div>
+
+            <div class="post-card__reveal">
+              <div class="reveal-info">
+                <span class="reveal-info__text">community reveal</span>
+                <span class="reveal-info__num" id="revealNum">23 / 100</span>
+              </div>
+              <div class="reveal-bar">
+                <div class="reveal-bar__fill" id="revealBar" style="width:23%"></div>
+              </div>
+            </div>
+
+            <div class="post-card__actions">
+              <button class="action-btn action-btn--active" onclick="addEngagement(3)">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                <span id="likeCount">847</span>
+              </button>
+              <button class="action-btn" onclick="addEngagement(1)">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                <span id="cmtCount">231</span>
+              </button>
+              <button class="action-btn" onclick="addEngagement(2)">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                <span id="shareCount">194</span>
+              </button>
+              <button class="action-btn action-btn--save" onclick="addEngagement(2)">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                <span id="saveCount">88</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Hint below card -->
+          <div class="screen-hint">tap to help reveal ↑</div>
+
+        </div>
+      </div>
+      <div class="phone-glow"></div>
+    </div>
+
+    <!-- Waitlist form -->
+    <div class="waitlist" id="waitlist">
+      <form class="waitlist__form" id="waitlistForm" onsubmit="handleSubmit(event)">
+        <input
+          class="waitlist__input"
+          type="email"
+          id="emailInput"
+          placeholder="your@email.com"
+          required
+          autocomplete="email"
+        />
+        <button class="waitlist__btn" type="submit">
+          <span id="btnText">Get early access</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </form>
+      <div class="waitlist__success" id="waitlistSuccess">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+        You're on the list. We'll be in touch.
+      </div>
+    </div>
+
+    <!-- Social proof -->
+    <div class="social-proof">
+      <div class="sp-avatars">
+        <div class="sp-avatar" style="background:#1e1030;">AK</div>
+        <div class="sp-avatar" style="background:#0e1a28;">MR</div>
+        <div class="sp-avatar" style="background:#1a1020;">JL</div>
+        <div class="sp-avatar sp-avatar--more">+</div>
+      </div>
+      <div class="sp-text">
+        <span class="sp-count" id="spCount">1,243</span> people already waiting
+      </div>
+    </div>
+
+  </section>
+
+  <!-- How it works -->
+  <section class="how">
+    <div class="how__label">How it works</div>
+    <div class="how__steps">
+      <div class="how__step">
+        <div class="how__step-num">01</div>
+        <div class="how__step-title">Post hidden</div>
+        <div class="how__step-desc">You publish. Your content starts completely concealed — blurred, pixelated, or black.</div>
+      </div>
+      <div class="how__divider"></div>
+      <div class="how__step">
+        <div class="how__step-num">02</div>
+        <div class="how__step-title">Community reveals</div>
+        <div class="how__step-desc">Every like, comment, share, and save moves the reveal bar. Proportional to engagement quality.</div>
+      </div>
+      <div class="how__divider"></div>
+      <div class="how__step">
+        <div class="how__step-num">03</div>
+        <div class="how__step-title">Live or die</div>
+        <div class="how__step-desc">Set your own timer — 1 hour to 7 days. Hit the threshold and it lives. Miss it, and it's gone. Forever.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Manifesto strip -->
+  <section class="manifesto">
+    <div class="manifesto__inner">
+      <p class="manifesto__text">
+        Every other network is built for the instant.<br>
+        <em>VEIL is built for the wait.</em>
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__logo">VEIL<span>.</span></div>
+    <div class="footer__links">
+      <a href="#" class="footer__link">Privacy</a>
+      <a href="#" class="footer__link">Terms</a>
+      <a href="#" class="footer__link">Contact</a>
+    </div>
+    <div class="footer__copy">© 2026 VEIL. All rights reserved.</div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
